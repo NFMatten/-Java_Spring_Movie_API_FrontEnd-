@@ -24,7 +24,7 @@ const DisplayMovies = (props) => {
                 component="img"
                 height="600"
                 image={`${movie.imgUrl}`}
-                alt="Paella dish"
+                alt={`${movie.name} movie poster`}
               />
             </Card>
           </Grid>
