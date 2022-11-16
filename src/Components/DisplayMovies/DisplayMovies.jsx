@@ -22,7 +22,7 @@ const DisplayMovies = (props) => {
               <CardMedia
                 padding="1em"
                 component="img"
-                height="600"
+                height="300"
                 image={`${movie.imgUrl}`}
                 alt={`${movie.name} movie poster`}
               />
