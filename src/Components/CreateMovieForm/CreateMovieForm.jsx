@@ -1,8 +1,8 @@
-import { Container, Stack, Button } from "@mui/material";
-import { TextField } from "@mui/material";
+import { Container, Stack, Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 const CreateMovieForm = (props) => {
+  const { showForm } = props;
   const [name, setName] = useState("");
   const [genre, setGenre] = useState("");
   const [director, setDirector] = useState("");
@@ -17,6 +17,8 @@ const CreateMovieForm = (props) => {
       imgUrl: imgUrl,
     };
     props.createNewMovie(newMovie);
+    props.setShowForm(!showForm);
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
   return (
