@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NavBar from "./Components/NavBar/NavBar";
 import DisplayMovies from "./Components/DisplayMovies/DisplayMovies";
-import { Box } from "@mui/material";
+import { Box, Button, Stack } from "@mui/material";
 import CreateMovieForm from "./Components/CreateMovieForm/CreateMovieForm";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const toggleForm = () => setShowForm(!showForm);
 
   useEffect(() => {
     fetchMovies();
@@ -36,9 +38,27 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Box sx={{ my: 5 }}>
-        <Box sx={{ my: 2 }}>
-          <CreateMovieForm createNewMovie={createNewMovie} />
+
+      <Box sx={{ marginBottom: 5 }}>
+        <Box sx={{ my: 1 }}>
+          <Stack>
+            <Button
+              variant="contained"
+              onClick={toggleForm}
+              sx={{ maxWidth: "200px" }}
+            >
+              Add New Movie
+            </Button>
+          </Stack>
+          <Stack>
+            {showForm && (
+              <CreateMovieForm
+                createNewMovie={createNewMovie}
+                showForm={showForm}
+                setShowForm={setShowForm}
+              />
+            )}
+          </Stack>
         </Box>
         <DisplayMovies movies={movies} />
       </Box>
