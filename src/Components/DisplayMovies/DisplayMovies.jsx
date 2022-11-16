@@ -1,13 +1,11 @@
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
-import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import { Container, Grid } from "@mui/material";
 
 const DisplayMovies = (props) => {
   const { movies } = props;
-
   return (
     <Container>
       <Grid container rowSpacing={2} columnSpacing={3}>
